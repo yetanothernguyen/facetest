@@ -1,0 +1,2 @@
+= Facetest
+A simple Sinatra app to manage test accounts on Facebook.
