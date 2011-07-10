@@ -13,6 +13,9 @@ Sinatra::Base.set :logging, false
 
 require File.join(File.dirname(__FILE__), '../application')
 
+require 'factory_girl'
+Dir[File.dirname(__FILE__)+"/factories/*.rb"].each {|file| require file }
+
 # establish in-memory database for testing
 DataMapper.setup(:default, "sqlite3::memory:")
 

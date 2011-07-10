@@ -7,13 +7,16 @@ require 'dm-aggregates'
 require 'dm-migrations'
 require 'haml'
 require 'ostruct'
+require 'httparty'
+require 'awesome_print'
+require 'rack-flash'
 
 require 'sinatra' unless defined?(Sinatra)
 
 configure do
   SiteConfig = OpenStruct.new(
-                 :title => 'Your Application Name',
-                 :author => 'Your Name',
+                 :title => 'FaceTest',
+                 :author => 'Nguyen Vu Nguyen',
                  :url_base => 'http://localhost:4567/'
                )
 

@@ -1,0 +1,29 @@
+%table{:cellspacing => "0", :cellpadding => "0", :boarder => "0", :class => "dashboard"}
+	%tr
+		%td{:width => "500px"}
+			.panel.dashboard_section
+				%h3 Apps
+				.panel_contents
+					%table{:cellspacing => "0", :cellpadding => "0", :boarder => "0"}
+						%thead
+							%tr
+								%th Name
+								%th Email
+								%th Password
+								%th
+						%tbody
+							- @accounts.each do |account|
+								%tr
+									%td= account.name
+									%td= account.email
+									%td= account.password
+									%td
+										%a{:href => "#{account['login_url']}", :target => "_blank"} Login
+		%td{:width => "500px"}
+			.panel.dashboard_section
+				%h3 Actions
+				.panel_contents
+					%form{:action => "/users", :method => "post"}
+						%input{:id => "app", :type => "hidden", :name => "app", :value => @app.id}
+						%input{:id => "user_submit", :class => "create", :type => "submit", :name => "commit", :value => "Add user"}
+									

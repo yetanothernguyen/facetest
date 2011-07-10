@@ -1,14 +1,15 @@
 !!!
 %html
   %head
-    %title= @title || SiteConfig.title
-    %link{:href => '/main.css', :rel => 'stylesheet', :type => 'text/css'}
-  %body
-    #container
+    %title Facetest - Test accounts right in your face
+    %meta{"http-equiv" => "Content-type", :content => "text/html; charset=utf-8"}
+    %link{:type => "text/css", :href => "/css/styles.css", :rel => "stylesheet", :media => "screen"}
+  %body.index
+    #wrapper
       #header
-        #logo
-          %h1
-            %a{:href => '/'}= SiteConfig.title
-      #content= yield
-      #footer
-        %p#legal= "&mdash; &copy; #{Time.now.strftime('%Y')} #{SiteConfig.author} &mdash;"
+        %h1#site_title Facetest
+      #title_bar
+        %h2#page_title Dashboard
+      .without_sidebar#content
+        .main_content_wrapper
+          .main_content= yield
