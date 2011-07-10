@@ -4,6 +4,7 @@ Bundler.setup(:default, :test)
 require 'sinatra'
 require 'rspec'
 require 'rack/test'
+require 'awesome_print'
 
 # set test environment
 Sinatra::Base.set :environment, :test

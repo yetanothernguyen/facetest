@@ -8,7 +8,6 @@ require 'dm-migrations'
 require 'haml'
 require 'ostruct'
 require 'httparty'
-require 'awesome_print'
 require 'rack-flash'
 
 require 'sinatra' unless defined?(Sinatra)
