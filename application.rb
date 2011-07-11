@@ -56,7 +56,7 @@ post '/users' do
   app = FacebookApp.get(params[:app])
   app.create_user!
 
-  redirect "/facebook_app/#{app.id}"
+  redirect "/facebook_apps/#{app.id}"
 end
 
 get '/facebook_apps/:id' do
