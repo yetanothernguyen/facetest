@@ -27,6 +27,15 @@ namespace :db do
   end
 end
 
+namespace :facetest do
+  desc 'Load test users into all apps'
+  task :load_users => :environment do
+    FacebookApp.all.each do |app|
+      app.load_users!
+    end
+  end
+end
+
 task :environment do
   require File.join(File.dirname(__FILE__), 'environment')
 end
