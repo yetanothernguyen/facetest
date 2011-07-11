@@ -6,7 +6,7 @@ class User
   property :fb_access_token,  Text
   property :email,            Text
   property :password,         String
-  property :name,							String
+  property :name,							Text
   property :first_name,				String
   property :middle_name,			String
   property :last_name,				String
