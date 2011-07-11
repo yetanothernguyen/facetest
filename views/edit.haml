@@ -12,12 +12,6 @@
 						%li.string.required#app_name_input
 							%label{:for => "app_name"} App Name
 							%input{:type => "text", :name => "app[name]", :id => "app_name", :maxlength => "255", :value => @app.name}
-						%li.string.required#app_app_id_input
-							%label{:for => "app_app_id"} App Id
-							%input{:type => "text", :name => "app[app_id]", :id => "app_app_id", :maxlength => "255", :value => @app.app_id}
-						%li.string.required#app_app_secret_input
-							%label{:for => "app_app_secret"} App Secret
-							%input{:type => "text", :name => "app[app_secret]", :id => "app_app_secret", :maxlength => "255", :value => @app.app_secret}
 						%li.string.required#app_app_secret_input
 							%label{:for => "app_app_secret"} URL
 							%input{:type => "text", :name => "app[url]", :id => "app_url", :maxlength => "255", :value => @app.url}	
