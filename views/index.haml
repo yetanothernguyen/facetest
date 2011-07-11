@@ -1,36 +1,41 @@
-%table{:cellspacing => "0", :cellpadding => "0", :boarder => "0", :class => "dashboard"}
-	%tr
-		%td{:width => "500px"}
-			.panel.dashboard_section
-				%h3 Apps
-				.panel_contents
-					%table{:cellspacing => "0", :cellpadding => "0", :boarder => "0"}
-						%thead
-							%tr
-								%th Name
-						%tbody
-							- @apps.each do |app|
-								%tr
-									%td
-										%a{:href => "/facebook_app/#{app.id}"}= app.name
-		%td{:width => "500px"}
-			.panel.dashboard_section
-				%h3 Add app
-				.panel_contents
-					%form{:method => "post", :action => "/facebook_apps", "accept-charset" => "UTF-8"}
-						%fieldset.inputs
-							%ol
-								%li.string.required#app_name_input
-									%label{:for => "app_name"} App Name
-									%input{:type => "text", :name => "app[name]", :id => "app_name", :maxlength => "255"}
-								%li.string.required#app_app_id_input
-									%label{:for => "app_app_id"} App Id
-									%input{:type => "text", :name => "app[app_id]", :id => "app_app_id", :maxlength => "255"}
-								%li.string.required#app_app_secret_input
-									%label{:for => "app_app_secret"} App Secret
-									%input{:type => "text", :name => "app[app_secret]", :id => "app_app_secret", :maxlength => "255"}
-						%fieldset.buttons
-							%ol
-								%li.commit
-									%input{:id => "app_submit", :class => "create", :type => "submit", :name => "commit", :value => "Add App"}
-									
+#title_bar
+	%h2#page_title Dashboard
+.without_sidebar#content
+	.main_content_wrapper
+	.main_content
+		%table{:cellspacing => "0", :cellpadding => "0", :boarder => "0", :class => "dashboard"}
+			%tr
+				%td{:width => "500px"}
+					.panel.dashboard_section
+						%h3 Apps
+						.panel_contents
+							%table{:cellspacing => "0", :cellpadding => "0", :boarder => "0"}
+								%thead
+									%tr
+										%th Name
+								%tbody
+									- @apps.each do |app|
+										%tr
+											%td
+												%a{:href => "/facebook_app/#{app.id}"}= app.name
+				%td{:width => "500px"}
+					.panel.dashboard_section
+						%h3 Add app
+						.panel_contents
+							%form{:method => "post", :action => "/facebook_apps", "accept-charset" => "UTF-8"}
+								%fieldset.inputs
+									%ol
+										%li.string.required#app_name_input
+											%label{:for => "app_name"} App Name
+											%input{:type => "text", :name => "app[name]", :id => "app_name", :maxlength => "255"}
+										%li.string.required#app_app_id_input
+											%label{:for => "app_app_id"} App Id
+											%input{:type => "text", :name => "app[app_id]", :id => "app_app_id", :maxlength => "255"}
+										%li.string.required#app_app_secret_input
+											%label{:for => "app_app_secret"} App Secret
+											%input{:type => "text", :name => "app[app_secret]", :id => "app_app_secret", :maxlength => "255"}
+								%fieldset.buttons
+									%ol
+										%li.commit
+											%input{:id => "app_submit", :class => "create", :type => "submit", :name => "commit", :value => "Add App"}
+											
