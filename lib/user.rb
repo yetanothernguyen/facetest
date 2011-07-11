@@ -3,8 +3,8 @@ class User
 
   property :id,         			Serial
   property :fb_id,            String
-  property :fb_access_token,  String
-  property :email,            String
+  property :fb_access_token,  Text
+  property :email,            Text
   property :password,         String
   property :name,							String
   property :first_name,				String
@@ -13,7 +13,7 @@ class User
   property :link,							String
   property :birthday,					Date
   property :gender,						String
-  property :login_url,        String
+  property :login_url,        Text
   property :created_at, 			DateTime
   property :updated_at, 			DateTime
 

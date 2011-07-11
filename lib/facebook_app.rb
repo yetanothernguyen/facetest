@@ -7,6 +7,7 @@ class FacebookApp
   property :app_id,						String
   property :app_secret,				String
   property :app_access_token,	String
+  property :url,              String
   property :created_at, 			DateTime
   property :updated_at, 			DateTime
 
@@ -18,7 +19,7 @@ class FacebookApp
 
   def load_users!
 		facebook = get_facebook
-		users = facebook.get_users  	
+		users = facebook.get_users
 		users.each do |user|
 			if existing_user = self.users.first(:fb_id => user["id"])
 				existing_user.update_from_facebook!(user)
@@ -26,8 +27,9 @@ class FacebookApp
 				details = facebook.get_user_details(user["id"],user["access_token"])
 				facebook.set_user_password(user["id"], user["access_token"], "facebook")
 				user["password"] = "facebook"
-				self.users << User.new_from_facebook(user, details)
-				self.save
+        record = User.new_from_facebook(user, details)
+        record.facebook_app = self
+				result = record.save
 			end
 		end
   end
@@ -38,8 +40,9 @@ class FacebookApp
   	details = facebook.get_user_details(user["id"],user["access_token"])
 		facebook.set_user_password(user["id"], user["access_token"], "facebook")
 		user["password"] = "facebook"
-		self.users << User.new_from_facebook(user, details)
-		self.save
+		record =  User.new_from_facebook(user, details)
+		record.facebook_app = self
+    record.save
   end
 
   def get_facebook

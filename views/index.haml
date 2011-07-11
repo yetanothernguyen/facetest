@@ -13,11 +13,17 @@
 								%thead
 									%tr
 										%th Name
+										%th Url
+										%th
 								%tbody
 									- @apps.each do |app|
 										%tr
 											%td
-												%a{:href => "/facebook_app/#{app.id}"}= app.name
+												%a{:href => "/facebook_apps/#{app.id}"}= app.name
+											%td
+												%a{:href => app.url, :target => "_blank"}= app.url
+											%td
+												%a{:href => "/facebook_apps/#{app.id}/edit"} Edit
 				%td{:width => "500px"}
 					.panel.dashboard_section
 						%h3 Add app

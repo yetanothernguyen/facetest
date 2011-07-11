@@ -9,6 +9,7 @@ require 'haml'
 require 'ostruct'
 require 'httparty'
 require 'rack-flash'
+require 'logger'
 
 require 'sinatra' unless defined?(Sinatra)
 

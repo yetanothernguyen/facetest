@@ -36,6 +36,22 @@ post '/facebook_apps' do
 	redirect '/'
 end
 
+get '/facebook_apps/:id/edit' do
+  @app = FacebookApp.get(params[:id])
+
+  haml :edit
+end
+
+post '/facebook_apps/:id' do
+  @app = FacebookApp.get(params[:id])
+  @app.attributes = params[:app]
+  if @app.save
+    redirect "/"
+  else
+    haml :edit
+  end
+end
+
 post '/users' do
   app = FacebookApp.get(params[:app])
   app.create_user!
@@ -43,10 +59,10 @@ post '/users' do
   redirect "/facebook_app/#{app.id}"
 end
 
-get '/facebook_app/:id' do
+get '/facebook_apps/:id' do
   @app = FacebookApp.get(params[:id])
   @app.load_users!
-  @accounts = app.users
+  @accounts = @app.users
   
   haml :facebook_app
 end
